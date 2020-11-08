@@ -21,10 +21,10 @@
 .create-room {
   font-size: 10px;
 }
-.create-room a {
+.create-room p {
   border: 1px solid lightblue;
   padding: 14px;
-  color: deepskyblue;
+  color: #6d0077;
   text-decoration: none;
 }
 
@@ -129,7 +129,7 @@
   padding-left: 10px;
 }
 
-.form-submit {
+/* .form-submit {
   background-color: #38AEF0;
   border: none;
   color: white;
@@ -137,7 +137,7 @@
   height: 50px;
   margin-left: 15px;
   padding: 0 20px;
-}
+} */
 
 .form-image {
   font-size: 12px;
@@ -151,4 +151,23 @@
 
 .hidden {
   display: none;
+}
+
+.form-title{
+  width: 200px;
+  height: 25px;
+  position: absolute;
+  padding-left: 10px;
+  left: 330px;
+  top: 150px;
+}
+
+.form-submit{
+  height: 26px;
+  position: absolute;
+  left: 540px;
+  top: 150px;
+  padding: 2px 10px;
+  border: 1px solid #eee;
+  font-size: 15px;
 }

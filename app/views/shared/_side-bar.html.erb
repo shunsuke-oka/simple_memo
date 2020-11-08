@@ -1,10 +1,18 @@
 <div class="side-bar-header">
   <div class="header-name">
-    <%= link_to current_user.nickname %>
+    <% if user_signed_in? %>
+      <%= link_to "#{current_user.nickname}のフォルダ" %>
+    <% end %>
   </div>
-  <div class="create-room">
-    <%= link_to "新規フォルダを作成する" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="create-room" id="create-folder">
+      <p>新規フォルダー</p>
+    </div>
+  <% end %>
+  <%= form_with model: @folder, class: "hidden", id: "form" do |f| %>
+    <%= f.text_area :title, class: "form-title", id: "title", placeholder:"フォルダー名" %>
+    <%= f.submit '作成', class: "form-submit", id: "submit" %>
+  <% end %>
 </div>
 <div class="rooms">
   <%# <% current_user.folders.each do |folder| %>
