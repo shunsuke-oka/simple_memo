@@ -1,0 +1,65 @@
+<div class="side-bar-header">
+  <div class="header-name">
+    <% if user_signed_in? %>
+      <%= link_to "#{current_user.nickname}のフォルダ" %>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <div class="create-room" id="create-folder">
+      <p>新規フォルダー</p>
+    </div>
+  <% end %>
+  <%= form_with model: @folder, class: "hidden", id: "form" do |f| %>
+    <%= f.text_area :title, class: "form-title", id: "title", placeholder:"フォルダー名" %>
+    <%= f.submit '作成', class: "form-submit", id: "submit" %>
+  <% end %>
+</div>
+<div class="rooms">
+  <% @folders.each do |folder| %>
+    <div class="room">
+      <div class="room-name">
+        <%= link_to "▽ #{folder.title}" %>
+      </div>
+      <div class="plus-menu">
+        <div class="more">
+          <span class="more-btn"><%= image_tag 'plus-icon-16px.png' %></span>
+        </div>
+        <div class="menu">
+          <ul class="more_list">
+            <li class="pulldown-list">
+              <%= link_to '新規メモ', new_folder_memo_path(folder) %>
+            </li>
+            <li class="pulldown-list">
+              <%= link_to '削除', folder_path(folder), method: :delete %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% if folder.memos.present? %>
+      <% folder.memos.each do |memo| %>
+        <div class="memo-list">
+          <%= link_to memo.title, memo_path(memo.id) %>
+          <div class="plus-menu">
+            <div class="more">
+              <span class="more-btn"><%= image_tag 'plus-icon-16px.png' %></span>
+            </div>
+            <div class="menu">
+              <ul class="more_list">
+                <li class="pulldown-list">
+                  <%= link_to '削除', memo_path(memo.id), method: :delete %>
+                </li>
+                <li class="pulldown-list">
+                  <%= link_to '詳細', memo_path(memo.id), method: :get %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% end %>
+</div>
+
+

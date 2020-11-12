@@ -1,0 +1,15 @@
+<%= render "shared/header" %>
+
+<div class='wrapper'>
+  <div class='side-bar'>
+    <%= render 'shared/side-bar' %>
+  </div>
+
+  <div class="memo-box">
+    <h2 class="memo-title">
+      <%= @memo.title %>
+    </h2>
+    <div class="memo-text">
+      <span><%= @memo.text %></span>
+    </div>
+</div>
