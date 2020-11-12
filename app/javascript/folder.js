@@ -6,7 +6,7 @@ function memo() {
     createFolder.setAttribute("style", "background-color:#37373d;")
   })
   createFolder.addEventListener("mouseout", () => {
-    createFolder.removeAttribute("style", "background-color:#000000;")
+    createFolder.removeAttribute("style", "background-color:#37373d")
   })
   createFolder.addEventListener("click", () => {
     if (form.getAttribute("style") == "display:block;") {

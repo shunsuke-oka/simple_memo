@@ -15,11 +15,51 @@
   <% end %>
 </div>
 <div class="rooms">
-  <%# <% current_user.folders.each do |folder| %>
-    <%# <div class="room"> %>
-      <%# <div class="room-name"> %>
-        <%# <%= link_to folder.title %> %>
-      <%# </div> %>
-    <%# </div> %>
-  <%# <% end %> %> %>
+  <% @folders.each do |folder| %>
+    <div class="room">
+      <div class="room-name">
+        <%= link_to "▽ #{folder.title}" %>
+      </div>
+      <div class="plus-menu">
+        <div class="more">
+          <span class="more-btn"><%= image_tag 'plus-icon-16px.png' %></span>
+        </div>
+        <div class="menu">
+          <ul class="more_list">
+            <li class="pulldown-list">
+              <%= link_to '新規メモ', new_folder_memo_path(folder) %>
+            </li>
+            <li class="pulldown-list">
+              <%= link_to '削除', folder_path(folder), method: :delete %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% if folder.memos.present? %>
+      <% folder.memos.each do |memo| %>
+        <div class="memo-list">
+          <%= link_to memo.title, memo_path(memo.id) %>
+          <div class="plus-menu">
+            <div class="more">
+              <span class="more-btn"><%= image_tag 'plus-icon-16px.png' %></span>
+            </div>
+            <div class="menu">
+              <ul class="more_list">
+                <li class="pulldown-list">
+                  <%= link_to '削除', memo_path(memo.id), method: :delete %>
+                </li>
+                <li class="pulldown-list">
+                  <%= link_to '詳細', memo_path(memo.id), method: :get %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% end %>
 </div>
+
+
