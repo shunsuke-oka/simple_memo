@@ -6,14 +6,14 @@
   </div>
 
   <div class="new-memo">
-    <h2 class="memo-title">新規メモ</h2>
+    <h2 class="memos-title">新規メモ</h2>
 
     <%= form_with model: @memo, url: folder_memos_path, local: true do |f| %>
       <div class="memo-title">
         <%= f.text_field :title, class: 'form-message', placeholder: 'タイトルを入力' %>
       </div>
       <div class="memo-text">
-        <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"メモを入力",　maxlength:"10000" %>
+        <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"メモを入力", maxlength:"10000" %>
       </div>
       <%= f.submit '保存', class: 'memo-submit' %>
     <% end %>
