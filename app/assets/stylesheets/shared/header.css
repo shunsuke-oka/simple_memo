@@ -88,29 +88,26 @@
 
 
 .logout {
-  background: #6d0077;
-  border: 2px solid #000000;
-  border-radius: 5%;
+  background: #2d2d2d;
+  border: 1px solid #ffffff;
   padding: 10px;
   text-decoration: none;
-  color: #ffffff;
+  color: #6d0077;
 }
 
 .login {
-  background: #6d0077;
-  border-radius: 5%;
-  border: 2px solid #ffffff;
+  background: #2d2d2d;
+  border: 1px solid red;
   padding: 10px;
   text-decoration: none;
   line-height: 32px;
-  margin-right: 3vw;
-  color: #ffffff;
+  margin-right: 2vw;
+  color: red;
 }
 
 .sign-up {
-  background: #ffffff;
-  border: 2px solid #0095EE;
-  border-radius: 5%;
+  background: #2d2d2d;
+  border: 1px solid #0095EE;
   padding: 10px;
   text-decoration: none;
   color: #0095EE;

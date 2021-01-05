@@ -1,6 +1,6 @@
 class MemosController < ApplicationController
-  before_action :folder_all, only: [:index, :new, :show]
-  before_action :find_params, only: [:destroy]
+  before_action :folder_all, only: [:index, :new, :show, :edit, :update]
+  before_action :find_params, only: [:destroy, :edit, :update]
 
   def new
     @memo = Memo.new
@@ -17,6 +17,17 @@ class MemosController < ApplicationController
 
   def show
     @memo = Memo.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @memo.update(memo_params)
+      redirect_to memo_path(@memo.id)
+    else
+      render :edit
+    end
   end
 
   def destroy

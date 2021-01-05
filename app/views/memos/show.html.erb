@@ -6,10 +6,12 @@
   </div>
 
   <div class="memo-box">
-    <h2 class="memo-title">
+    <%= link_to edit_folder_memo_path(@memo.id) do %>
+    <h2 class="memoTitle">
       <%= @memo.title %>
     </h2>
-    <div class="memo-text">
+    <div class="memoText">
       <span><%= @memo.text %></span>
     </div>
+    <% end %>
 </div>
