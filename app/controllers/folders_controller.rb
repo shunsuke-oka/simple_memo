@@ -1,5 +1,6 @@
 class FoldersController < ApplicationController
   before_action :find_params, only: [:destroy]
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @folder = Folder.new
